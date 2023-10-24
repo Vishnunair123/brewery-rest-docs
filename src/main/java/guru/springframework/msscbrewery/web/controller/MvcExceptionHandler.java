@@ -6,9 +6,9 @@ import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.validation.ConstraintViolationException;
 
 /**
  * Created by jt on 2019-05-25.

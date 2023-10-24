@@ -1,0 +1,9 @@
+[source,http,options="nowrap"]
+----
+POST /api/v1/beer HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 114
+Host: dev.springframework.guru:80
+
+{"id":null,"beerName":"Beer1","beerStyle":"PALE_ALE","upc":123456789012,"createdDate":null,"lastUpdatedDate":null}
+----

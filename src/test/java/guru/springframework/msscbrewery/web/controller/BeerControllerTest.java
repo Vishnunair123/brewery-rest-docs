@@ -19,6 +19,7 @@ import org.springframework.restdocs.payload.FieldDescriptor;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.StringUtils;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -37,7 +38,7 @@ import static org.springframework.restdocs.snippet.Attributes.key;
 @ExtendWith(value = RestDocumentationExtension.class)
 @AutoConfigureRestDocs(uriScheme = "https",uriHost = "dev.springframework.guru",uriPort = 80)
 @WebMvcTest(BeerController.class)
-@ComponentScan(basePackages = "guru.springframework.msscbrewery.web.mappers")
+//@ComponentScan(basePackages = "guru.springframework.msscbrewery.web.mappers")
 public class BeerControllerTest {
 
     @MockBean
@@ -60,12 +61,12 @@ public class BeerControllerTest {
                 .andDo(document("v1/beer-get", pathParameters(
                 		parameterWithName("beerId").description("UUID of desired beer to get")),
                 		responseFields(
-                				fieldWithPath("id").description("Id of Beer"),
+                				fieldWithPath("id").description("Id of Beer").type(UUID.class),
                                 fieldWithPath("beerName").description("Beer Name"),
                                 fieldWithPath("beerStyle").description("Beer Style"),
                                 fieldWithPath("upc").description("UPC of Beer"),
-                                fieldWithPath("createdDate").description("Date Created"),
-                                fieldWithPath("lastUpdatedDate").description("Date Updated")
+                                fieldWithPath("createdDate").description("Date Created").type(OffsetDateTime.class),
+                                fieldWithPath("lastUpdatedDate").description("Date Updated").type(OffsetDateTime.class)
                 				)));
     }
 
